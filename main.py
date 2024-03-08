@@ -29,6 +29,7 @@ def add_contact(args, book: AddressBook):
     record = book.find(name)
     if not record:
         record = Record(name)
+        record.add_phone(phone)
         book.add_record(record)
     else:    
         record.add_phone(phone)
