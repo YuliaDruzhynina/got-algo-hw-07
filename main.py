@@ -109,9 +109,9 @@ def main():
             print(show_phone(args, book))
         elif command == "all":
             print(show_all(book))
-        elif command == "add birthday":
+        elif command == "add-birthday":
             print(add_birthday(args, book))
-        elif command == "show birthday":
+        elif command == "show-birthday":
             print(show_birthday(args, book))  
         elif command == "birthdays":
             print(birthdays(args, book))      
