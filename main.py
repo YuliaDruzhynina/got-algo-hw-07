@@ -53,7 +53,7 @@ def show_phone(args, book: AddressBook):
     if not record:
         return "Contact not found."
      
-    return '; '.join(str(phone) for phone in record.phones)
+    return f"Conactname: {name},{'; '.join(str(phone) for phone in record.phones)}"
 
 
 @input_error
