@@ -108,7 +108,7 @@ def main():
         elif command == "phone":
             print(show_phone(args, book))
         elif command == "all":
-            print(show_all(args, book))
+            print(show_all(book))
         elif command == "add birthday":
             print(add_birthday(args, book))
         elif command == "show birthday":

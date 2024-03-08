@@ -11,7 +11,7 @@ class Field:
     
     @property
     def value(self):
-        return self.__value  #можем указать иное значение для возврата напр.множина
+        return self.__value
     
     @value.setter
     def value(self, value):
@@ -79,12 +79,12 @@ class Record:
             return None  
              
     def edit_phone(self, old_phone: str, new_phone: str):
-        try:    
-            if self.find_phone(old_phone):
-                self.remove_phone(old_phone)
-                self.add_phone(new_phone)
-        except ValueError:
-            return "Invalid number "
+        ph = self.find_phone(old_phone)
+        if ph:
+            self.remove_phone(old_phone)
+            self.add_phone(new_phone)
+        else:
+            raise ValueError
 
     def __str__(self):
         return f"Contact name: {self.name.value}, phones: {'; '.join(p.value for p in self.phones)}, birthday: {str(self.birthday)}"
@@ -92,11 +92,11 @@ class Record:
 
 class AddressBook(UserDict):
     def add_record(self, record: Record):
-        self.data[record.name.value] = record  #self[record.name.value]
+        self.data[record.name.value] = record
         return record
     
     def find(self, name: str):                
-        return self.data.get(name)  #return self.get(name) error не будет:UserDict
+        return self.data.get(name)
     
     def delete(self, name: str):
         if self.find(name):
