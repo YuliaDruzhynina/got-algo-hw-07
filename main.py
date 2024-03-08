@@ -80,7 +80,7 @@ def show_birthday(args, book: AddressBook):
 
 @input_error
 def show_all(book: AddressBook):
-    return list(book.items())
+    return list(book)
 # вместо даты рождения - обьект класса
 
 @input_error
