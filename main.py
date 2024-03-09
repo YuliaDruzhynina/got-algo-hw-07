@@ -83,7 +83,7 @@ def show_all(args, book: AddressBook):
 def birthdays(book: AddressBook):
     # name = args[0]
     # if name in book.keys():
-    return book.get_upcoming_birthdays()
+    return book.get_upcoming_birthdays
 
 
 
