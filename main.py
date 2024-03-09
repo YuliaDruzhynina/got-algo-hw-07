@@ -1,5 +1,4 @@
-from classes import AddressBook
-from classes import Record, Birthday
+from classes import AddressBook, Record
 
 
 def input_error(func):
