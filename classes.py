@@ -39,7 +39,7 @@ class Birthday(Field):
     def value(self, value):
         if not self.is_valid(value):
             raise ValueError
-        self.__value = datetime.strptime(value, "%d.%m.%Y")
+        self.__value = datetime.strptime(value, "%d.%m.%Y").date()
             
 
 class Name(Field):
