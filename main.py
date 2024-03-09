@@ -25,13 +25,13 @@ def parse_input(user_input):
 
 @input_error
 def add_contact(args, book: AddressBook):
-    name, phone = args 
+    name, phone = args
     record = book.find(name)
     if not record:
         record = Record(name)
         record.add_phone(phone)
         book.add_record(record)
-    else:    
+    else:
         record.add_phone(phone)
     return "Contact added."
 
@@ -42,20 +42,19 @@ def change_contact(args, book: AddressBook):
     record = book.find(name)
     if not record:
         return "Contact not found."
-    else:
-        record.edit_phone(old_phone, new_phone)
-        return "Contact changed."
+
+    record.edit_phone(old_phone, new_phone)
+    return "Contact changed."
 
 
 @input_error
-def show_phone(args, book: AddressBook): 
+def show_phone(args, book: AddressBook):
     name = args[0]
     record = book.find(name)
     if not record:
         return "Contact not found."
-     
-    return f"Conactname: {name},{'; '.join(str(phone) for phone in record.phones)}"
-
+    return f"Name: {name}, phone: {'; '.join(str(phone) for phone in record.phones)}"
+   
 
 @input_error
 def add_birthday(args, book: AddressBook):
@@ -63,8 +62,7 @@ def add_birthday(args, book: AddressBook):
     record = book.find(name)
     if not record:
         record = Record(name)
-        book.add_record(record)
-                                    #else: return None
+        book.add_record(record)  # else: return None
     record.add_birthday(birthday)
     return "Birthday added."
 
@@ -74,20 +72,20 @@ def show_birthday(args, book: AddressBook):
     name = args[0]
     record = book.find(name)
     if not record:
-        return "Contact not found."
-    return record.birthday()
+        return "Name not found."
+    return record.birthday
 
 
 @input_error
-def show_all(book: AddressBook):
-    return list(book)
-# вместо даты рождения - обьект класса
+def show_all(args, book: AddressBook):
+    return f"{book}"
 
 @input_error
-def birthdays(args, book: AddressBook):
-    name = args[0]
-    if name in book.keys():
-        return book.get_upcoming_birthdays()
+def birthdays(book: AddressBook):
+    # name = args[0]
+    # if name in book.keys():
+    return book.get_upcoming_birthdays()
+
 
 
 def main():
