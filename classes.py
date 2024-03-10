@@ -106,7 +106,7 @@ class AddressBook(UserDict):
     def get_upcoming_birthdays(self):
         
         today = datetime.now().date()
-        upcoming_birthdays = [record for record in self.data.values() if record.birthday.value.date() > today]
+        upcoming_birthdays = [record for record in self.data.values() if record.birthday.value.date > today]
         upcoming_birthdays += upcoming_birthdays  #upcoming_birthday.append(record)
         return upcoming_birthdays
 
