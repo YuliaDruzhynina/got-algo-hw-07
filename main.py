@@ -76,14 +76,12 @@ def show_birthday(args, book: AddressBook):
 
 
 @input_error
-def show_all(args, book: AddressBook):
-    return f"{book}"
+def show_all(book: AddressBook):
+    return book
 
 @input_error
 def birthdays(book: AddressBook):
-    # name = args[0]
-    # if name in book.keys():
-    return book.get_upcoming_birthdays
+    return book.get_upcoming_birthdays()
 
 
 
